@@ -2,7 +2,7 @@ describe('Window alert test suite', function()
 {
     it('alert and pop up test case', function() {
 
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+        cy.visit(Cypress.env('url')+"/AutomationPractice/");
         cy.get('#alertbtn').click()
         cy.get('[value="Confirm"]').click()
         // cypress auto accept all the alerts and popups

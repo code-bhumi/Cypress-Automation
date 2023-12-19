@@ -6,7 +6,7 @@ import ProductPage from "../PageObjects/ProductPage"
 
 describe('framework handling test', function()
 {
-    before(function(){
+    before(function(){ 
 
         // runs once before all tests in the block
         cy.fixture('example').then(function(data)
@@ -17,9 +17,7 @@ describe('framework handling test', function()
     it('should handle data inside framework', function() {
         const homePage = new HomePage()
         const productPage = new ProductPage()
-
-        cy.visit('https://rahulshettyacademy.com/angularpractice/')
-
+        cy.visit(Cypress.env('url')+'/angularpractice/')
         homePage.getEditBox().type(this.data.name)
         homePage.getEmailid().type(this.data.email)
         homePage.getGender().select(this.data.gender)
@@ -32,7 +30,6 @@ describe('framework handling test', function()
 
             cy.selectProduct(element)
         });
-
         productPage.getCheckOutPage().click()
         var sum = 0
         cy.get('tr td:nth-child(4) strong').each(($e1, index, $list) => {
@@ -52,7 +49,6 @@ describe('framework handling test', function()
             var result = amount.split(" ")
             var total = result[1].trim()
             expect(Number(total)).to.equal(sum)
-
         })
 
         productPage.getCheckOutButton().click()
