@@ -2,6 +2,7 @@
   "name": "Siya",
   "email":"abc_1234@gmail.com",
   "gender": "Female",
-  "productName": ["Blackberry","Samsung Note 8"]
+  "productName": ["Blackberry","Samsung Note 8"],
+  "countryName":"Ind"
   
 }

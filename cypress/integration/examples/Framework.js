@@ -2,6 +2,8 @@
 /// <reference types = 'cypress-iframe' />
 
 import HomePage from "../PageObjects/HomePage"
+import ProductPage from "../PageObjects/ProductPage"
+
 describe('framework handling test', function()
 {
     before(function(){
@@ -14,6 +16,8 @@ describe('framework handling test', function()
     })
     it('should handle data inside framework', function() {
         const homePage = new HomePage()
+        const productPage = new ProductPage()
+
         cy.visit('https://rahulshettyacademy.com/angularpractice/')
 
         homePage.getEditBox().type(this.data.name)
@@ -28,6 +32,21 @@ describe('framework handling test', function()
 
             cy.selectProduct(element)
         });
+
+        productPage.getCheckOutPage().click()
+        productPage.getCheckOutButton().click()
+        productPage.getCountryName().type(this.data.countryName)
+        cy.wait(2000)
+        productPage.getSelectedCountry().click()
+        productPage.getCheckboxButton().click()
+        productPage.gotoPurchase().click()
+        //productPage.getSuccessMsg().should('have.text','Success! Thank you! Your order will be delivered in next few weeks :-).')
+        productPage.getSuccessMsg().then(function(element)
+        {
+            const actualText = element.text()
+            expect(actualText.includes("Success")).to.be.true
+        })
+
 
     })
 })
