@@ -34,6 +34,27 @@ describe('framework handling test', function()
         });
 
         productPage.getCheckOutPage().click()
+        var sum = 0
+        cy.get('tr td:nth-child(4) strong').each(($e1, index, $list) => {
+
+            const amount = $e1.text()
+            var result = amount.split(" ")
+            result = result[1].trim()
+            sum = Number(sum)+Number(result)
+            cy.log(result)
+        }).then(function() 
+        {
+            cy.log(sum)
+        })
+        cy.get('h3 strong').then(function(element)
+        {
+            const amount = element.text()
+            var result = amount.split(" ")
+            var total = result[1].trim()
+            expect(Number(total)).to.equal(sum)
+
+        })
+
         productPage.getCheckOutButton().click()
         productPage.getCountryName().type(this.data.countryName)
         cy.wait(2000)
