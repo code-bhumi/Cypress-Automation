@@ -4,7 +4,9 @@
   "description": "This is a test package",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_module\\.bin\\cypress run",
+    "headTest": "npm run test -- --headed",
+    "firefoxTest" : "npm run test -- --browser firefox --parallel"
   },
   "author": "Meenakshi Pal",
   "license": "ISC",
