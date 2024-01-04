@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "This is a test package",
   "main": "index.js",
-  "scripts": {
-    "test": "node_module\\.bin\\cypress run",
+  "Scripts": {
+    "test": "node_modules\\.bin\\cypress run",
     "headTest": "npm run test -- --headed",
-    "firefoxTest" : "npm run test -- --browser firefox --parallel"
+    "chromeTest" : "npm run test -- --browser chrome",
+    "recordDashBoardTest" : "npm run test -- --record --key 30e6c83e-7ba8-4d2f-82bf-c28739ace883 --reporter mochawesome",
+    "GreenKartTest" : "npm run test -- --spec \"cypress/integration/GreenKart/*\""
   },
   "author": "Meenakshi Pal",
   "license": "ISC",
