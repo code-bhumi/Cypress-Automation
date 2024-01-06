@@ -17,13 +17,16 @@ describe('framework handling test', function()
     it('should handle data inside framework', function() {
         const homePage = new HomePage()
         const productPage = new ProductPage()
+
         cy.visit(Cypress.env('url')+'/angularpractice/')
+
         homePage.getEditBox().type(this.data.name)
         homePage.getEmailid().type(this.data.email)
         homePage.getGender().select(this.data.gender)
         homePage.getTwoWayDataBinding().should('have.value',this.data.name)
         homePage.getEditBox().should('have.attr','minlength','2')
         homePage.getEntrepreneurButton().should('be.disabled')
+        Cypress.config('defaultCommandTimeout', 8000)
         homePage.getShopTab().click()
 
         this.data.productName.forEach(function(element) {
