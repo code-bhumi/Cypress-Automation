@@ -4,7 +4,7 @@
   "description": "This is a test package",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules\\.bin\\cypress run",
+    "test": "node_modules/.bin/cypress run",
     "headTest": "npm run test -- --headed",
     "chromeTest" : "npm run test -- --browser chrome",
     "recordDashBoardTest" : "npm run test -- --record --key 30e6c83e-7ba8-4d2f-82bf-c28739ace883 --reporter mochawesome",
