@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This is a test package",
   "main": "index.js",
-  "Scripts": {
+  "scripts": {
     "test": "node_modules\\.bin\\cypress run",
     "headTest": "npm run test -- --headed",
     "chromeTest" : "npm run test -- --browser chrome",
