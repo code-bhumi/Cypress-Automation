@@ -5,28 +5,43 @@
   "description": "This is a test package",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/cypress run",
     "test": "node_modules/.bin/cypress run",
     "headTest": "npm run test -- --headed",
-    "chromeTest": "npm run test -- --browser chrome",
+    "chromeTest": "npm run test -- --chrome",
     "recordDashBoardTest": "npm run test -- --record --key 30e6c83e-7ba8-4d2f-82bf-c28739ace883 --reporter mochawesome",
-    "GreenKartTest": "npm run test -- --spec \"cypress/integration/GreenKart/*\""
+    "GreenKartTest": "npm run test -- --spec \"cypress/integration/examples/BDD*.feature\""
+  },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumberReports/results.json"
+    }
   },
   "author": "Meenakshi Pal",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
     "@cypress/browserify-preprocessor": "^3.0.2",
-    "cypress": "^13.6.1",
+    "@types/cypress-cucumber-preprocessor": "^4.0.5",
+    "babel-loader": "^9.1.3",
+    "cucumber": "^6.0.7",
+    "cypress": "^13.6.2",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-iframe": "^1.0.1",
+    "excel": "^1.0.1",
     "mocha": "^10.2.0",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",
-    "mochawesome-report-generator": "^6.2.0"
+    "mochawesome-report-generator": "^6.2.0",
+    "neat-csv": "5.1.0"
   },
   "dependencies": {
-
-    "@badeball/cypress-cucumber-preprocessor": "^20.0.0"
-    
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.0",
+    "@cypress/browserify-preprocessor": "latest",
+    "convert-excel-to-json": "^1.7.0",
+    "exceljs": "^4.4.0",
+    "multiple-cucumber-html-reporter": "^3.6.2"
   }
 }

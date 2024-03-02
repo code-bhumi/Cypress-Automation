@@ -21,6 +21,17 @@
                 }
             })
          })
+
+         Cypress.Commands.add("LoginAPI",()=> {
+
+            cy.request("POST","https://rahulshettyacademy.com/api/eom/auth/login",
+            {"userEmail":"rahulshetty@gmail.com","userPassword":"Iamking@00"}).
+            then(function(response)
+            {
+                expect(response.status).to.eq(200)
+                Cypress.env('token',response.body.token);
+            })
+         })
      
 //
 // -- This is a child command --

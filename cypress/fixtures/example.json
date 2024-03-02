@@ -1,8 +1,9 @@
 {
   "name": "Siya",
-  "email":"abc_1234@gmail.com",
   "gender": "Female",
+  "email":"abc_1234@gmail.com",
+  
   "productName": ["Blackberry","Samsung Note 8"],
-  "countryName":"Ind"
+  "countryName":"Ind" 
   
 }
